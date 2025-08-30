@@ -22,12 +22,12 @@ export class PromptService {
     return this.#session;
   }
 
-  prompt(text) {
+  prompt(text, signal) {
     this.#messages.push({
       role: "user",
       content: text,
     });
 
-    return this.#session.promptStreaming(this.#messages);
+    return this.#session.promptStreaming(this.#messages, signal);
   }
 }
